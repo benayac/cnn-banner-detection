@@ -20,7 +20,11 @@ val_not_detected_dir = os.path.join('validation', 'not_detected')
 
 detected_count = len(os.listdir(train_detected_dir))
 not_detected_count = len(os.listdir(train_not_detected_dir))
-
+try:
+    os.makedirs("validation/not_detected/")
+    os.makedirs("validation/detected/")
+except Exception:
+    pass
 #normalize data between detected image and not detected
 detected_file = os.listdir(train_detected_dir)
 random.shuffle(detected_file)
